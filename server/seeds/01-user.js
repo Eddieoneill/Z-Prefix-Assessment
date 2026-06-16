@@ -23,4 +23,7 @@ exports.seed = async function (knex) {
   await knex("user").insert(
     await createUser("admin", "Test", "test", "Admin1234"),
   );
+  await knex("user").insert(
+    await createUser("admin2", "Test2", "test2", "Admin1234"),
+  );
 };
