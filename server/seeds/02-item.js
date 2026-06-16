@@ -11,7 +11,45 @@ exports.seed = async function (knex) {
     {
       user_id: admin.id,
       item_name: "test",
-      description: "this is a test item",
+      description:
+        "this is a test item. this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description: "this is a test item2",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description: "this is a test item2",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description: "this is a test item2",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description: "this is a test item2",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description:
+        "this is a test item. this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description:
+        "this is a test item. this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.this is a test item.",
+    },
+    {
+      user_id: admin.id,
+      item_name: "test2",
+      description: "this is a test item2",
     },
   ]);
 };

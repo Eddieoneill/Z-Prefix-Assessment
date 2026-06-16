@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.increments();
     table.integer("user_id").unsigned();
     table.string("item_name");
-    table.string("description");
+    table.text("description");
     table.integer("quantity").defaultTo(0);
   });
 };

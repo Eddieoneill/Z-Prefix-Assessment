@@ -16,7 +16,22 @@ app.use("/users", userRoutes);
 app.use("/item", itemRoutes);
 
 app.get("/", (req, res) => {
-  res.status(200).send({ message: "The API is up and running!" });
+  res.status(200).send({
+    message:
+      "The API is up and running! Following are the list of endpoints you can use.",
+    endpoints: [
+      { method: "POST", path: "localhost:8000/auth/register" },
+      { method: "POST", path: "localhost:8000/auth/login" },
+      { method: "POST", path: "localhost:8000/auth/logout" },
+      { method: "GET", path: "localhost:8000/users" },
+      { method: "GET", path: "localhost:8000/users/:id" },
+      { method: "GET", path: "localhost:8000/item" },
+      { method: "GET", path: "localhost:8000/item/:id" },
+      { method: "POST", path: "localhost:8000/item/create" },
+      { method: "POST", path: "localhost:8000/item/:id" },
+      { method: "DELETE", path: "localhost:8000/item/:id" },
+    ],
+  });
 });
 
 app.listen(port, () => {
