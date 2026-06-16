@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import "../css/Login.css";
 import post from "../support/post";
 
@@ -12,18 +12,18 @@ export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
 
   const createButtonPressed = async () => {
     const username = usernameText.current.value;
-    const fist_name = firstNameText.current.value;
+    const first_name = firstNameText.current.value;
     const last_name = lastNameText.current.value;
     const password = passwordText.current.value;
 
-    if (!username || !fist_name || !last_name || !password) {
+    if (!username || !first_name || !last_name || !password) {
       alert("Please enter usename, first name, last name, and password");
       return;
     }
 
     const postResult = await post("http://localhost:8000/auth/register", {
       username,
-      fist_name,
+      first_name,
       last_name,
       password,
     });
@@ -48,22 +48,6 @@ export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
     if (key === "Enter") {
       createButtonPressed();
     }
-  };
-
-  const updatePassword = (event) => {
-    let key = event.key;
-    const tempPassword = password;
-
-    if (key !== "Backspace" && key.length > 1) return;
-    if (key === "Backspace") {
-      tempPassword.pop();
-      setPassword(tempPassword);
-    } else {
-      tempPassword.push(key);
-      setPassword(tempPassword);
-    }
-
-    console.log("password", password);
   };
 
   return (
@@ -116,6 +100,9 @@ export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
             onClick={createButtonPressed}
           >
             Create
+          </button>
+          <button className="login-button" id="continue">
+            Continue as guest
           </button>
         </div>
       </div>

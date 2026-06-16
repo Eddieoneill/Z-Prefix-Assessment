@@ -1,6 +1,6 @@
 import "../App.css";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <>
       <nav className="nav-container">
@@ -20,5 +20,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;
