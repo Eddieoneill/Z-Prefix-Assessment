@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import AppContext from "../context/AppContext";
 import "../css/Login.css";
-import post from "../support/post";
+import { post } from "../support/fetch";
 
-export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
+export default function Register() {
   const navigate = useNavigate();
+  const { setUser, setIsLoggedIn } = useContext(AppContext);
   const usernameText = useRef(null);
   const firstNameText = useRef(null);
   const lastNameText = useRef(null);
@@ -35,7 +37,6 @@ export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
         setUser(postResult);
       }
       setIsLoggedIn(true);
-      setIsLoading(false);
       navigate("/");
     } else {
       alert(postResult.message);
@@ -51,61 +52,75 @@ export default function Register({ setIsLoggedIn, setIsLoading, setUser }) {
   };
 
   return (
-    <div className="login-container">
-      <div className="grid-container">
-        <div className="grid-column">
-          <div className="login-title">Username: </div>
-          <input
-            className="login-text"
-            id="userName"
-            type="text"
-            onKeyDown={enterPressed}
-            ref={usernameText}
-          />
-        </div>
-        <div className="grid-column">
-          <div className="login-title">First Name: </div>
-          <input
-            className="login-text"
-            id="firstName"
-            type="text"
-            onKeyDown={enterPressed}
-            ref={firstNameText}
-          />
-        </div>
-        <div className="grid-column">
-          <div className="login-title">Last Name: </div>
-          <input
-            className="login-text"
-            id="lastName"
-            type="text"
-            onKeyDown={enterPressed}
-            ref={lastNameText}
-          />
-        </div>
-        <div className="grid-column">
-          <div className="login-title">Password: </div>
-          <input
-            className="login-text"
-            id="password"
-            type="password"
-            onKeyDown={enterPressed}
-            ref={passwordText}
-          />
-        </div>
-        <div className="confirm">
+    <>
+      <h1 className="page-title">Account Registration</h1>
+      <div className="login-container">
+        <div className="grid-container">
+          <div className="grid-column">
+            <div className="login-title">Username: </div>
+            <input
+              className="login-text"
+              id="userName"
+              type="text"
+              onKeyDown={enterPressed}
+              ref={usernameText}
+            />
+          </div>
+          <div className="grid-column">
+            <div className="login-title">First Name: </div>
+            <input
+              className="login-text"
+              id="firstName"
+              type="text"
+              onKeyDown={enterPressed}
+              ref={firstNameText}
+            />
+          </div>
+          <div className="grid-column">
+            <div className="login-title">Last Name: </div>
+            <input
+              className="login-text"
+              id="lastName"
+              type="text"
+              onKeyDown={enterPressed}
+              ref={lastNameText}
+            />
+          </div>
+          <div className="grid-column">
+            <div className="login-title">Password: </div>
+            <input
+              className="login-text"
+              id="password"
+              type="password"
+              onKeyDown={enterPressed}
+              ref={passwordText}
+            />
+          </div>
           <button
-            className="login-button"
+            className="main-button"
             id="create"
             onClick={createButtonPressed}
           >
-            Create
+            Submit
           </button>
-          <button className="login-button" id="continue">
-            Continue as guest
-          </button>
+          <div className="confirm">
+            <button
+              className="login-button"
+              id="login"
+              onClick={() => navigate("/login")}
+            >
+              Sign-in
+            </button>
+            <button
+              id="guest"
+              className="login-button"
+              onClick={() => navigate("/")}
+            >
+              Continue as guest
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

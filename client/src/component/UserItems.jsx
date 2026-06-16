@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { get } from "../support/fetch";
 import "../css/HomePage.css";
 
-export default function HomePage() {
+export default function UserItems({ user }) {
   const [items, setItems] = useState(null);
 
   const fetchItems = async () => {
@@ -26,11 +26,13 @@ export default function HomePage() {
 
   return (
     <>
-      <h1 className="page-title">All Items</h1>
+      <h1 className="page-title">User Items</h1>
       <div className="container">
-        {items.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
+        {items.map((item) => {
+          if (item.user_id === user.id) {
+            return <Item key={item.id} item={item} />;
+          }
+        })}
       </div>
     </>
   );

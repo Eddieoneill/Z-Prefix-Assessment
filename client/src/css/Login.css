@@ -26,7 +26,7 @@
   grid-template-columns: 5rem 5rem;
   justify-content: center;
   height: 40%;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 .login-title {
@@ -41,4 +41,19 @@
   justify-content: center;
   justify-self: center;
   place-items: center;
+}
+
+#login {
+  background-color: rgba(60, 60, 255, 0.801);
+  color: aliceblue;
+}
+
+#create {
+  background-color: rgba(0, 165, 27, 0.5);
+  color: aliceblue;
+}
+
+#guest {
+  background-color: rgba(137, 150, 0, 0.671);
+  color: aliceblue;
 }
