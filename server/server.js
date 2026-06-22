@@ -20,16 +20,16 @@ app.get("/", (req, res) => {
     message:
       "The API is up and running! Following are the list of endpoints you can use.",
     endpoints: [
-      { method: "POST", path: "localhost:8000/auth/register" },
-      { method: "POST", path: "localhost:8000/auth/login" },
-      { method: "POST", path: "localhost:8000/auth/logout" },
-      { method: "GET", path: "localhost:8000/users" },
-      { method: "GET", path: "localhost:8000/users/:id" },
-      { method: "GET", path: "localhost:8000/item" },
-      { method: "GET", path: "localhost:8000/item/:id" },
-      { method: "POST", path: "localhost:8000/item/create" },
-      { method: "POST", path: "localhost:8000/item/:id" },
-      { method: "DELETE", path: "localhost:8000/item/:id" },
+      { method: "POST", path: "/auth/register" },
+      { method: "POST", path: "/auth/login" },
+      { method: "POST", path: "/auth/logout" },
+      { method: "GET", path: "/users" },
+      { method: "GET", path: "/users/:id" },
+      { method: "GET", path: "/item" },
+      { method: "GET", path: "/item/:id" },
+      { method: "POST", path: "/item/create" },
+      { method: "POST", path: "/item/:id" },
+      { method: "DELETE", path: "/item/:id" },
     ],
   });
 });
