@@ -26,7 +26,7 @@ export default function Login() {
       return;
     }
 
-    const postResult = await post("http://localhost:8000/auth/login", {
+    const postResult = await post("/auth/login", {
       username: username,
       password: password,
     });
@@ -46,7 +46,7 @@ export default function Login() {
       <div className="login-container">
         <div className="grid-container">
           <div className="grid-column">
-            <div className="login-title">Username: </div>
+            <div className="login-title">Username:</div>
             <input
               className="login-text"
               id="userName"

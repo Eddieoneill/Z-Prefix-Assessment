@@ -44,7 +44,7 @@ export default function Navbar() {
         </div>
         <div className="info-container">
           <div className="info-text-container">
-            <div>{username}</div>
+            <div>username: {username}</div>
           </div>
           <div className="info-button-container">
             <button

@@ -8,16 +8,26 @@ import HomePage from "./component/HomePage";
 import UserItems from "./component/UserItems";
 import "./App.css";
 import ItemDetail from "./component/ItemDetail";
+// import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [item, setItem] = useState(null);
+  const [itemChanged, setItemChanged] = useState(true);
 
   return (
     <AppContext.Provider
-      value={{ isLoggedIn, user, setUser, setIsLoggedIn, setItem }}
+      value={{
+        isLoggedIn,
+        user,
+        itemChanged,
+        setUser,
+        setIsLoggedIn,
+        setItem,
+        setItemChanged,
+      }}
     >
       <Navbar />
       <Routes>
@@ -33,6 +43,7 @@ function App() {
           element={<Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />}
         />
       </Routes>
+      {/* <SpeedInsights /> */}
     </AppContext.Provider>
   );
 }

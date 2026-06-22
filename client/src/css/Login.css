@@ -8,6 +8,14 @@
 .grid-container {
   display: grid;
   grid-template-rows: 5rem 5rem 5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.25rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin-top: -5rem;
 }
 
 .grid-column {
@@ -19,6 +27,7 @@
 .login-text {
   height: 2rem;
   border-radius: 2rem;
+  margin-left: 1rem;
 }
 
 .confirm {
@@ -31,16 +40,6 @@
 
 .login-title {
   margin-right: 5rem;
-}
-
-.login-button {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin-top: 1rem;
-  justify-content: center;
-  justify-self: center;
-  place-items: center;
 }
 
 #login {
@@ -56,4 +55,14 @@
 #guest {
   background-color: rgba(137, 150, 0, 0.671);
   color: aliceblue;
+}
+
+.login-button {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: center;
+  justify-self: center;
+  place-items: center;
 }

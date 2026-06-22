@@ -1,16 +1,18 @@
 import Item from "./Item";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { get } from "../support/fetch";
 import "../css/HomePage.css";
+import AppContext from "../context/AppContext";
 
 export default function HomePage() {
   const [items, setItems] = useState(null);
+  const { itemChanged, setItemChanged } = useContext(AppContext);
 
   const fetchItems = async () => {
-    const getResult = await get("http://localhost:8000/item");
+    const getResult = await get("/item");
 
     if (!getResult.message) {
-      setItems(getResult);
+      setItems(getResult.sort((a, b) => a.id - b.id));
     } else {
       alert(getResult.message);
     }
@@ -19,6 +21,13 @@ export default function HomePage() {
   useEffect(() => {
     fetchItems();
   }, []);
+
+  useEffect(() => {
+    if (itemChanged) {
+      fetchItems();
+      setItemChanged(false);
+    }
+  }, [itemChanged]);
 
   if (!items) {
     return <div>Loading...</div>;

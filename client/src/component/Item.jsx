@@ -23,7 +23,9 @@ export default function Item({ item }) {
           <div className="item">Name: {item.item_name}</div>
           <div className="item">Quantity: {item.quantity}</div>
         </div>
-        <div className="item">Description: {description}</div>
+        <div className="item" id="description">
+          Description: {description}
+        </div>
       </div>
     </div>
   );

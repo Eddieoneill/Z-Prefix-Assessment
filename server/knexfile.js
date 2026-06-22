@@ -1,17 +1,14 @@
-// Update with your config settings.
-
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
 module.exports = {
   development: {
     client: "pg",
-    connection: {
-      host: process.env.DB_HOST || "localhost",
-      port: 5432,
-      user: "postgres",
-      password: "docker",
-      database: "inventory_db",
-    },
+    connection: process.env.DATABASE_URL
+      ? { connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }
+      : {
+          host: process.env.DB_HOST || "localhost",
+          port: 5432,
+          user: "postgres",
+          password: "docker",
+          database: "inventory_db",
+        },
   },
 };

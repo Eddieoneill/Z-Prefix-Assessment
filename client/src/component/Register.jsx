@@ -23,7 +23,7 @@ export default function Register() {
       return;
     }
 
-    const postResult = await post("http://localhost:8000/auth/register", {
+    const postResult = await post("/auth/register", {
       username,
       first_name,
       last_name,
