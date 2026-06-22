@@ -1,8 +1,8 @@
 module.exports = {
   development: {
     client: "pg",
-    connection: process.env.DATABASE_URL
-      ? { connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }
+    connection: process.env.POSTGRES_URL
+      ? { connectionString: process.env.POSTGRES_URL, ssl: { rejectUnauthorized: false } }
       : {
           host: process.env.DB_HOST || "localhost",
           port: 5432,
