@@ -4,6 +4,7 @@
   font-weight: bold;
   background-image: url("/warehouse.png");
   background-attachment: fixed;
+  background-size: cover;
   color: aliceblue;
 }
 
