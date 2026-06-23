@@ -117,7 +117,7 @@ export default function ItemDetail({ item }) {
                 className="item-detail-edit-btn"
                 onClick={applyButtonClicked}
               >
-                Apply
+                Add
               </button>
               <button
                 className="item-detail-edit-btn"
